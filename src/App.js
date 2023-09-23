@@ -3,7 +3,8 @@ import Routers from './utils/Routers';
 import classes from './App.module.css';
 
 const App = () => {
-  const [darkModeOn, setDarkModeOn] = useState(false);
+  const [darkModeOn, setDarkModeOn] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches);
+
   const toggleDarkMode = () => {
     setDarkModeOn(!darkModeOn);
   };
