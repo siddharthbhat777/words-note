@@ -123,6 +123,11 @@
 @media screen and (max-width: 750px) {
     .homeActivityContainer {
         width: 90%;
+        height: 85vh;
+        margin-top: 2rem;
+    }
+    .activityListContainer {
+        height: 70vh;
     }
     .activityName {
         font-size: 0.7rem;
