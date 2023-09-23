@@ -1,0 +1,53 @@
+.loginBackground {
+    height: 100vh;
+    background-color: var(--login-page-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginContainer {
+    display: grid;
+    grid-template-rows: 40% 20% auto;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 30%;
+    border-radius: 1rem;
+    background-color: var(--login-container-background);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+@media screen and (max-width: 750px) {
+    .loginContainer {
+        width: 90%;
+    }
+}
+
+.appLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-color);
+}
+
+.header {
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.googleCard {
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    padding-inline: 1.5rem;
+    border-radius: 2rem;
+    color: var(--text-alternative-color);
+    background-color: var(--text-color);
+}
+
+.googleCard span {
+    font-weight: 500;
+    margin: auto;
+}
