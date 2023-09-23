@@ -5,3 +5,72 @@
     right: 0;
     margin: 1rem;
 }
+
+.darkModeSwitch {
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    height: 34px;
+}
+
+.darkModeSwitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.darkModeSwitch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--dark-mode-button-background);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 80px;
+}
+
+.darkModeSwitch .slider.round {
+    border-radius: 34px;
+}
+
+.darkModeSwitch input:checked+.slider {
+    background-color: var(--dark-mode-button-background);
+}
+
+.darkModeSwitch .slider:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--white);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.darkModeSwitch input:checked+.slider:before {
+    -webkit-transform: translateX(45px);
+    -ms-transform: translateX(45px);
+    transform: translateX(45px);
+}
+
+.sunMoonImage {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+}
+
+.sun {
+    right: 10px;
+}
+
+.moon {
+    left: 10px;
+}

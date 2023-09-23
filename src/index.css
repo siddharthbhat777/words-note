@@ -12,6 +12,7 @@ body {
   --component-color: #48445b;
   --activities-color: #bfc7ff;
   --activity-color: #3b2773;
+  --dark-mode-button-background: #a578dc;
   --white: white;
   --black: black;
 }
@@ -30,6 +31,7 @@ body.darkMode {
   --component-color: white;
   --activities-color: #a498e2;
   --activity-color: #443591;
+  --dark-mode-button-background: #502882;
   --white: white;
   --black: black;
 }
