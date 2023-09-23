@@ -7,8 +7,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   --text-color: black;
   --text-alternative-color: white;
-  --login-page-background: white;
-  --login-container-background: #e4e4e4;
+  --page-background: #ede1ff;
+  --page-container-background: #d2c2ff;
+  --component-color: #48445b;
+  --activities-color: #bfc7ff;
+  --white: white;
+  --black: black;
 }
 
 body.darkMode {
@@ -20,8 +24,12 @@ body.darkMode {
   -moz-osx-font-smoothing: grayscale;
   --text-color: white;
   --text-alternative-color: black;
-  --login-page-background: #15153b;
-  --login-container-background: #31316d;
+  --page-background: #15153b;
+  --page-container-background: #31316d;
+  --component-color: white;
+  --activities-color: #a498e2;
+  --white: white;
+  --black: black;
 }
 
 code {

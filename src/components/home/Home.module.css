@@ -1,0 +1,82 @@
+.homeBackground {
+    height: 100vh;
+    width: 100%;
+    background-color: var(--page-background);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homeActivityContainer {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 15% auto;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 60%;
+    border-radius: 1rem;
+    background-color: var(--page-container-background);
+    box-shadow: #3c40434d 0rem 0.063rem 0.125rem 0rem, #3c404326 0rem 0.063rem 0.188rem 0rem;
+}
+
+@media screen and (max-width: 750px) {
+    .homeActivityContainer {
+        width: 90%;
+    }
+}
+
+.topContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.addWordContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.addWord {
+    background-color: var(--white);
+    width: 80%;
+    font-size: large;
+    padding-inline: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 1.25rem;
+    border: none;
+    box-shadow: #3c40434d 0rem 0.063rem 0.125rem 0rem, #3c404326 0rem 0.063rem 0.188rem 0.063rem;
+    transition: all 0.2s ease-in-out;
+}
+
+.addWord:focus {
+    outline: none;
+    box-shadow: #06182c66 0rem 0rem 0rem 0.125rem, #06182ca6 0rem 0.25rem 0.375rem -0.063rem, #ffffff14 0rem 0.063rem 0rem inset;
+}
+
+.topHr {
+    width: 95%;
+    height: 0.1rem;
+    margin-top: 1.25rem;
+}
+
+.bottomContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.activityListContainer {
+    height: 95%;
+    width: 85%;
+    background-color: var(--activities-color);
+    border-radius: 0.75rem;
+    box-shadow: #00000040 0rem 0.0625em 0.0625em, #00000040 0rem 0.125em 0.5em, #ffffff1a 0rem 0rem 0rem 0.063rem inset;
+}

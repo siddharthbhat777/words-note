@@ -1,6 +1,6 @@
 .loginBackground {
     height: 100vh;
-    background-color: var(--login-page-background);
+    background-color: var(--page-background);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,8 +14,8 @@
     height: 40vh;
     width: 30%;
     border-radius: 1rem;
-    background-color: var(--login-container-background);
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    background-color: var(--page-container-background);
+    box-shadow: #3c40434d 0rem 0.063rem 0.125rem 0rem, #3c404326 0rem 0.063rem 0.188rem 0rem;
 }
 
 @media screen and (max-width: 750px) {
@@ -44,7 +44,7 @@
     padding-inline: 1.5rem;
     border-radius: 2rem;
     color: var(--text-alternative-color);
-    background-color: var(--text-color);
+    background-color: var(--component-color);
 }
 
 .googleCard span {
