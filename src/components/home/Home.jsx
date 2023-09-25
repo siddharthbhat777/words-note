@@ -1,8 +1,16 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import classes from './Home.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+    const navigate = useNavigate();
     const messageTextRef = useRef();
+
+    useEffect(() => {
+        if (!localStorage.getItem('googleUserEmail')) {
+            navigate('/login')
+        }
+    }, [navigate]);
 
     const handleUpdate = () => {
         console.log('update working');

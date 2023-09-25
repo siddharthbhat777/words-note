@@ -1,9 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Login.module.css';
+import { signInWithGoogle } from '../../firebase-config';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigate = useNavigate();
 
-    const handleSignin = async () => {};
+    useEffect(() => {
+        if (localStorage.getItem('googleUserEmail')) {
+            navigate('/');
+        }
+    }, [navigate]);
+
+    const handleSignin = () => {
+        signInWithGoogle().then((result) => {
+            localStorage.setItem('googleUserEmail', result.user.email)
+            navigate('/');
+        }).catch((error) => {
+            console.log(error);
+        });;
+    };
     return (
         <div className={classes.loginBackground}>
             <div className={classes.loginContainer}>
