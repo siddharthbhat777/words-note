@@ -76,7 +76,7 @@
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     border: none;
-    box-shadow: #00000040 0px 0.0625em 0.0625em, #00000040 0px 0.125em 0.5em, #ffffff1a 0px 0px 0px 1px inset;
+    box-shadow: #00000040 0rem 0.0625em 0.0625em, #00000040 0rem 0.125em 0.5em, #ffffff1a 0rem 0rem 0rem 0.063rem inset;
 }
 
 .addWordButton:focus {
@@ -84,7 +84,7 @@
 }
 
 .addWordButton:active {
-    box-shadow: #06182c66 0px 0px 0px 2px, #06182ca6 0px 4px 6px -1px, #ffffff14 0px 1px 0px inset;
+    box-shadow: #06182c66 0rem 0rem 0rem 0.125rem, #06182ca6 0rem 0.25rem 0.375rem -0.063rem, #ffffff14 0rem 0.063rem 0rem inset;
 }
 
 .topHr {

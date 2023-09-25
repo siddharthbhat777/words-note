@@ -46,6 +46,12 @@
     border-radius: 2rem;
     color: var(--text-alternative-color);
     background-color: var(--component-color);
+    box-shadow: #ffffff33 0rem 0rem 0rem 0.063rem inset, #000000e6 0rem 0rem 0rem 0.063rem;
+    transition: all 0.1s ease-in-out;
+}
+
+.googleCard:active {
+    box-shadow: #06182c66 0rem 0rem 0rem 0.125rem, #06182ca6 0rem 0.25rem 0.375rem -0.063rem, #ffffff14 0rem 0.063rem 0rem inset;
 }
 
 .googleCard span {
