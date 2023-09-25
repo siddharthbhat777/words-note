@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Routers from './utils/Routers';
 import classes from './App.module.css';
 import sunImage from './assets/sun.png';
@@ -16,7 +16,7 @@ const App = () => {
   }, [darkModeOn]);
 
   return (
-    <div>
+    <Fragment>
       <div className={classes.darkModeButton}>
         <label className={classes.darkModeSwitch}>
           <input type="checkbox" checked={darkModeOn} onChange={toggleDarkMode} />
@@ -29,7 +29,7 @@ const App = () => {
         </label>
       </div>
       <Routers />
-    </div>
+    </Fragment>
   );
 };
 

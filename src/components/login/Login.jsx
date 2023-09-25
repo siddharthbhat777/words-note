@@ -14,7 +14,9 @@ const Login = () => {
 
     const handleSignin = () => {
         signInWithGoogle().then((result) => {
+            localStorage.setItem('googleUserName', result.user.displayName)
             localStorage.setItem('googleUserEmail', result.user.email)
+            localStorage.setItem('googleUserPhotoUrl', result.user.photoURL)
             navigate('/');
         }).catch((error) => {
             console.log(error);
