@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import classes from './Home.module.css';
 import { useNavigate } from 'react-router-dom';
+import { addDoc, collection } from 'firebase/firestore';
+import { db } from '../../firebase-config';
 
 const Home = () => {
     const userName = localStorage.getItem('googleUserName');
@@ -8,6 +10,7 @@ const Home = () => {
     const userPhotoUrl = localStorage.getItem('googleUserPhotoUrl');
     const navigate = useNavigate();
     const messageTextRef = useRef();
+    const userCollectionReference = collection(db, userEmail);
 
     useEffect(() => {
         if (!userEmail) {
@@ -31,7 +34,10 @@ const Home = () => {
     };
 
     const handleAddWord = async () => {
-        console.log('add working');
+        await addDoc(userCollectionReference, { message: messageTextRef.current.value, date: new Date() });
+        if (messageTextRef.current) {
+            messageTextRef.current.value = '';
+        }
     };
 
     return (
