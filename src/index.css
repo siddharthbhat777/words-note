@@ -15,6 +15,11 @@ body {
   --dark-mode-button-background: #a578dc;
   --white: white;
   --black: black;
+  --maroon: #a02828;
+  --dark-yellow: #ecec58;
+  --blue: #0e0e5d;
+  --light-blue: #7e7ecf;
+  --gray: #484848;
 }
 
 body.darkMode {
@@ -34,6 +39,11 @@ body.darkMode {
   --dark-mode-button-background: #502882;
   --white: white;
   --black: black;
+  --maroon: #a02828;
+  --dark-yellow: #ecec58;
+  --blue: #0e0e5d;
+  --light-blue: #7e7ecf;
+  --gray: #484848;
 }
 
 code {
