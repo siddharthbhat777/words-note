@@ -283,6 +283,16 @@
     border-radius: 0rem 0.5rem 0.5rem 0rem;
 }
 
+.noDataFound {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: large;
+    font-weight: 600;
+    color: var(--black);
+}
+
 @media screen and (max-width: 900px) {
     .addWord {
         width: 60%;
