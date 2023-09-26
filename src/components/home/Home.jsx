@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import classes from './Home.module.css';
 import { useNavigate } from 'react-router-dom';
-import { addDoc, collection, doc, getDocs, updateDoc } from 'firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase-config';
 import Loader from '../loader/Loader';
 
@@ -64,8 +64,10 @@ const Home = () => {
         setRefreshList(true);
     };
 
-    const handleDelete = () => {
-        console.log('delete working');
+    const handleDelete = async (id) => {
+        const wordDoc = doc(db, userEmail, id);
+        await deleteDoc(wordDoc);
+        setRefreshList(true);
     };
 
     const handleAddWord = async () => {
@@ -145,7 +147,7 @@ const Home = () => {
                                                         <path fillRule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
                                                     </svg>
                                                 </div>
-                                                <div className={classes.deleteMessage} onClick={handleDelete}>
+                                                <div className={classes.deleteMessage} onClick={() => handleDelete(word.id)}>
                                                     <svg style={{ cursor: 'pointer' }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-circle-fill" viewBox="0 0 16 16">
                                                         <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
                                                     </svg>
