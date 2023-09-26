@@ -41,7 +41,7 @@
     font-size: large;
 }
 
-.profileContainer logo {
+.profileContainer div {
     display: flex;
     align-items: center;
 }
