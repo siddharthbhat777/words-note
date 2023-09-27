@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import classes from './Login.module.css';
 import { signInWithGoogle } from '../../firebase-config';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -18,6 +19,21 @@ const Login = () => {
             localStorage.setItem('googleUserEmail', result.user.email)
             localStorage.setItem('googleUserPhotoUrl', result.user.photoURL)
             navigate('/');
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            });
+            Toast.fire({
+                icon: 'success',
+                title: 'Signed in successfully'
+            });
         }).catch((error) => {
             console.log(error);
         });;
