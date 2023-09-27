@@ -17,7 +17,7 @@ const Home = () => {
     const [showLoader, setShowLoader] = useState(false);
     const [refreshList, setRefreshList] = useState(false);
     const [editedText, setEditedText] = useState('');
-
+    const usersDocReference = doc(db, 'words', 'users');
 
     const sortedData = React.useMemo(() => { return [...words].sort((a, b) => new Date(b.date.seconds) - new Date(a.date.seconds)) }, [words]);
 
@@ -28,12 +28,13 @@ const Home = () => {
     }, [navigate, userEmail]);
 
     useEffect(() => {
-        const userCollectionReference = collection(db, userEmail);
+        const usersDocReference = doc(db, 'words', 'users');
+        const userSubCollection = collection(usersDocReference, userEmail);
         const delay = 1000;
         setShowLoader(true);
         const gettingWords = async () => {
             try {
-                const data = await getDocs(userCollectionReference);
+                const data = await getDocs(userSubCollection);
                 setWords(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
             } catch (error) {
                 console.log(error.message);
@@ -76,10 +77,14 @@ const Home = () => {
     };
 
     const handleEdit = async (id) => {
-        const wordDoc = doc(db, userEmail, id);
-        await updateDoc(wordDoc, { message: editedText });
-        setEditItemId(null);
-        setRefreshList(true);
+        try {
+            const wordDoc = doc(db, `words/users/${userEmail}/${id}`);
+            await updateDoc(wordDoc, { message: editedText });
+            setEditItemId(null);
+            setRefreshList(true);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const handleDelete = async (id) => {
@@ -93,7 +98,7 @@ const Home = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then(async (result) => {
             if (result.isConfirmed) {
-                const wordDoc = doc(db, userEmail, id);
+                const wordDoc = doc(db, `words/users/${userEmail}/${id}`);
                 await deleteDoc(wordDoc);
                 setRefreshList(true);
                 Swal.fire(
@@ -106,12 +111,16 @@ const Home = () => {
     };
 
     const handleAddWord = async () => {
-        const userCollectionReference = collection(db, userEmail);
-        await addDoc(userCollectionReference, { message: messageTextRef.current.value, date: new Date() });
-        if (messageTextRef.current) {
-            messageTextRef.current.value = '';
+        try {
+            const userSubCollection = collection(usersDocReference, userEmail);
+            await addDoc(userSubCollection, { message: messageTextRef.current.value, date: new Date() });
+            if (messageTextRef.current) {
+                messageTextRef.current.value = '';
+            }
+            setRefreshList(true);
+        } catch (error) {
+            console.log(error);
         }
-        setRefreshList(true);
     };
 
     const getFormattedDate = (rawDate) => {
