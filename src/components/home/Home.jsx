@@ -29,13 +29,15 @@ const Home = () => {
 
     useEffect(() => {
         const usersDocReference = doc(db, 'words', 'users');
-        const userSubCollection = collection(usersDocReference, userEmail);
         const delay = 1000;
         setShowLoader(true);
         const gettingWords = async () => {
             try {
-                const data = await getDocs(userSubCollection);
-                setWords(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+                if (userEmail) {
+                    const userSubCollection = collection(usersDocReference, userEmail);
+                    const data = await getDocs(userSubCollection);
+                    setWords(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+                }
             } catch (error) {
                 console.log(error.message);
             } finally {
